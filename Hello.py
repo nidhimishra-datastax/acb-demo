@@ -12,10 +12,10 @@ ASTRA_DB_APPLICATION_TOKEN = st.secrets["ASTRA_DB_APPLICATION_TOKEN"]
 ASTRA_DB_API_ENDPOINT = st.secrets["ASTRA_DB_API_ENDPOINT"]
 
 # Configure your embedding model and vector store
-embedding = OpenAIEmbeddings(model="text-embedding-3-small", dimensions=1536)
+embedding = OpenAIEmbeddings(model="text-embedding-3-large", dimensions=1024)
 
 vstore = AstraDBVectorStore(
-    collection_name="test_few_endpoints_1",
+    collection_name="acb_chatbot",
     embedding=embedding,
     token=ASTRA_DB_APPLICATION_TOKEN,
     api_endpoint=ASTRA_DB_API_ENDPOINT,
@@ -25,7 +25,7 @@ print("Astra vector store configured")
 retriever = vstore.as_retriever(search_kwargs={"k": 5})
 
 prompt_template = """
-You are a Chat Support representative. Answer the question based only on the supplied context. If you don't know the answer, say you don't know the answer. Respond to the question in the same language as the user query.
+You are a ACB Bank's Chat Support representative. Be clear and elaborate in your responses. Answer the question based only on the supplied context. If you don't know the answer, say you don't know the answer. Respond to the question in the same language as the user query.
 Context: {context}
 Question: {question}
 Your answer:
@@ -44,7 +44,7 @@ def get_response(question):
     return chain.invoke(question)
 
 def main():
-    st.title('LangChain Chatbot Demo')
+    st.title('ACB Chatbot Demo')
 
     # Create containers for messages
     container = st.container()
@@ -54,7 +54,7 @@ def main():
     if 'input' not in st.session_state:
         st.session_state['input'] = ""
 
-    user_input = st.text_input("Type your question here:", key="input", value=st.session_state.input)
+    user_input = st.text_input("Type your question here:", key="input")
 
     # Function to handle the response display
     def display_message(user_query, bot_response):
@@ -78,7 +78,12 @@ def main():
                 for user_query, bot_reply in all_messages:
                     display_message(user_query, bot_reply)
             # Clear input field after sending
-            st.session_state.input = ""  # Reset input field safely
+            # st.session_state.input = ""  # Reset input field safely
+
+    # Check if we need to reset the input field
+    # if 'reset_input' in st.session_state and st.session_state.reset_input:
+    #     st.session_state.input = ""  # Reset input field safely
+    #     st.session_state.reset_input = False  # Clear the reset flag        
 
 if __name__ == '__main__':
     main()
