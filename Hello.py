@@ -7,15 +7,18 @@ from langchain_astradb import AstraDBVectorStore
 from langchain_openai import OpenAIEmbeddings
 import os
 
-openai_api_key=st.secrets("OPENAI_API_KEY")
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+ASTRA_DB_APPLICATION_TOKEN = st.secrets["ASTRA_DB_APPLICATION_TOKEN"]
+ASTRA_DB_API_ENDPOINT = st.secrets["ASTRA_DB_API_ENDPOINT"]
+
 # Configure your embedding model and vector store
 embedding = OpenAIEmbeddings(model="text-embedding-3-small", dimensions=1536)
 
 vstore = AstraDBVectorStore(
     collection_name="test_few_endpoints_1",
     embedding=embedding,
-    token=st.secrets("ASTRA_DB_APPLICATION_TOKEN"),
-    api_endpoint=st.secrets("ASTRA_DB_API_ENDPOINT"),
+    token=ASTRA_DB_APPLICATION_TOKEN,
+    api_endpoint=ASTRA_DB_API_ENDPOINT,
 )
 print("Astra vector store configured")
 
