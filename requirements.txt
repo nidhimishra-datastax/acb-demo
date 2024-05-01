@@ -1,4 +1,5 @@
 altair
+python-dotenv
 numpy
 pandas
 pydeck
