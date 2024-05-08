@@ -46,7 +46,7 @@ def get_response(question):
 def main():
     st.title('ACB Chatbot Demo')
 
-    user_input = st.text_input("Ask your question:", "What is the discount for first time customers?")
+    user_input = st.text_input("Ask your question:", "What are the benefits of ACB Napas Business Debit card?")
     if st.button('Submit'):
         response = get_response(user_input)
         st.text_area("Response:", value=response, height=300)
