@@ -34,13 +34,17 @@ cd ACB-Demo
 
 2. Install the dependencies as in requirements.txt
 
-``` pip install requirements.txt ```
+``` 
+pip install requirements.txt
+```
 
 3. Populate OpenAI key, Astra DB endpoint, Astra token etc in the environment variables.
 
 4. Run the Streamlit application.
 
-``` streamlit run hello.py ```
+``` 
+streamlit run hello.py
+ ```
 
 Streamlit is an open-source Python library that allows developers to create interactive, data-driven web applications with ease.
 ingest_data.ipynb - Run the python notebook to index and populate vector embeddings in AstraDB.
