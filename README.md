@@ -49,4 +49,4 @@ streamlit run hello.py
 Streamlit is an open-source Python library that allows developers to create interactive, data-driven web applications with ease.
 ingest_data.ipynb - Run the python notebook to index and populate vector embeddings in AstraDB.
 
-Alternatively, you can host it on Streamlit Cloud. This is available  **[here](https://acb-demo.streamlit.app/)
+Alternatively, you can host it on Streamlit Cloud. This is available [[here](https://acb-demo.streamlit.app/)](https://acb-demo.streamlit.app/)
