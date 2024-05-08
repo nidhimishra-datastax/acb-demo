@@ -22,7 +22,7 @@ vstore = AstraDBVectorStore(
 )
 print("Astra vector store configured")
 
-retriever = vstore.as_retriever(search_kwargs={"k": 5})
+retriever = vstore.as_retriever(search_kwargs={"k": 3})
 
 prompt_template = """
 You are a ACB Bank's Chat Support representative. Be clear and elaborate in your responses. Answer the question based only on the supplied context. If you don't know the answer, say you don't know the answer. Respond to the question in the same language as the user query.
