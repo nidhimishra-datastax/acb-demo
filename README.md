@@ -9,7 +9,7 @@ The project includes scripts for ingesting data into the database by crawling th
 ## Features
 - **Data Ingestion**: Automated notebook for ingesting data into AstraDB using vector embeddings.
 - **Query and Response**: Core application logic that retrieves and processes data based on user queries.
-- **Sample Questions
+- **Sample Questions**: Sample questions for Q&A Assistant
 
 ## Prerequisites
 Before you can run this project, you need the following installed:
